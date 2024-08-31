@@ -1,18 +1,15 @@
 import * as React from 'react';
 import Image from 'next/image';
-
-import Navbar from "./navbar"
 import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { blue } from '@mui/material/colors';
+import Navbar from "./navbar"
 
 export default function BoxBasic() {
   return (
   <Container maxWidth='xl' sx={{ position:`relative` , zIndex:100000 , height:`100vh`}}>
-   <Navbar></Navbar>
+    <Navbar></Navbar>   
       <Box
                      component="section"
                      sx={{
@@ -61,7 +58,7 @@ export default function BoxBasic() {
       Subscribe
     </Button> */}
     <Button variant="contained" sx={{ p: 1 }}>
-      Get Started
+    Get Started
     </Button>
   </Box>
 </Box>

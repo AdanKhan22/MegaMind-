@@ -13,6 +13,8 @@ import CommentIcon from '@mui/icons-material/Comment';
 import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid2';
 
+import Link from 'next/link';
+
 export default function MultiActionAreaCard() {
    
      const arr1 = [1,2,3,4,5,6,7,8,9,10];
@@ -27,7 +29,7 @@ export default function MultiActionAreaCard() {
       lg: 'row',    
       xl: 'row'       
     }}} >
-      {arr1.map((index) => (
+      {arr1.map((index , post) => (
           <Grid key={index}>
           <Card sx={{ maxWidth:{sm:1 , md:320 , lg:400}, bgcolor: 'black', color: 'white' }}>
             <CardActionArea>
@@ -57,9 +59,11 @@ export default function MultiActionAreaCard() {
                   <CommentIcon sx={{ color: 'white', ml: 1, width: 20, height: 20 }} />
                   <Typography variant='h6' sx={{ p: 1 }}>7</Typography>
                 </Box>
+                    <Link href={`/posts/${index}`}>
                 <Typography variant="h6" sx={{ color: 'white', fontFamily: 'Poppins, Arial, sans-serif' }}>
                   The Future of Web Development?: Web Assembly (WASM)
                 </Typography>
+                    </Link>
               </CardContent>
             </CardActionArea>
             <CardActions>
