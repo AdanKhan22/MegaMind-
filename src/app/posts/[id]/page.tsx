@@ -1,15 +1,30 @@
+// app/posts/page.tsx
+import { getPostById } from '../../../db/queries/Post/select';
+import Container from '@mui/material/Container';
+import Navbar from "../../../../components/navbar"
+import BreadCrumbs from "../../../../components/Breadcrumbs"
 
-
-const ArticlePage = () => {
- 
-  
+export default async function Page() {
+  const posts = await getPostById(1); // Fetch all posts from the database
+   
+  if (!posts) {
+    return <div>No posts available.</div>; 
+  }
 
   return (
-    <div>
-      <h1>Article ID</h1>
-       <p>Hello world</p>
-    </div>
-  );
-};
+    <>
+    <Navbar></Navbar>
+    <Container
+      maxWidth={false} // Disable the default max-width
+      sx={{
+        maxWidth: '50%', // Set a custom max-width using percentage or any valid CSS unit
+        color: 'white',  // Set text color
+      }}
+    >
 
-export default ArticlePage;
+           <BreadCrumbs></BreadCrumbs>
+          <div dangerouslySetInnerHTML={{ __html: posts.content }} />
+    </Container>
+    </>
+  );
+}
